@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poppins</title>
+    <meta name="description" content="Bubbles appear all over the screen. Click one before it disappears." />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js?v=4"></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Poppins"><span class="brand-mark">✦</span> pop together</a>
+        <div class="connection"><span class="status-dot" id="statusDot"></span><span id="statusText">Connecting</span></div>
+      </header>
+
+      <aside class="score-hud" aria-label="Game score">
+        <div class="score-label">Score</div>
+        <div class="score-value" id="scoreValue">000000</div>
+        <div class="combo-row">
+          <span id="comboValue">Combo x0</span>
+          <span id="comboPoints">+0</span>
+        </div>
+        <div class="combo-meter" role="progressbar" aria-label="Combo time remaining" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0">
+          <span id="comboMeterFill"></span>
+        </div>
+        <div class="frenzy-status" id="frenzyStatus" hidden>
+          <div class="frenzy-row"><span>Frenzy</span><span id="frenzySeconds">10s</span></div>
+          <div class="frenzy-meter" role="progressbar" aria-label="Frenzy time remaining" aria-valuemin="0" aria-valuemax="10" aria-valuenow="10">
+            <span id="frenzyMeterFill"></span>
+          </div>
+        </div>
+        <div class="hp-row">
+          <span>HP</span>
+          <span id="hpValue">100 / 100</span>
+        </div>
+        <div class="hp-meter" role="progressbar" aria-label="Health" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+          <span id="hpMeterFill"></span>
+        </div>
+      </aside>
+
+      <aside class="tutorial-window" aria-label="KNOW YOUR BUBBLES">
+        <div class="tutorial-heading">
+          <div class="tutorial-title">KEY BUBBLES</div>
+          <button class="tutorial-toggle" id="tutorialToggle" type="button" aria-label="Minimize bubble guide" aria-expanded="true">−</button>
+        </div>
+        <div class="tutorial-item">
+          <span class="guide-bubble regular" aria-hidden="true"></span>
+          <span><strong>Regular</strong><small>NOT SPECIAL.</small></span>
+        </div>
+        <div class="tutorial-item">
+          <span class="guide-bubble red" aria-hidden="true"></span>
+          <span><strong>Red</strong><small>KILLS YOU INSTANTLY</small></span>
+        </div>
+        <div class="tutorial-item">
+          <span class="guide-bubble gold" aria-hidden="true"></span>
+          <span><strong>Gold</strong><small>A RARE TREASURE</small></span>
+        </div>
+        <div class="tutorial-item">
+          <span class="guide-bubble gobli" aria-hidden="true"><img src="gobli.png" alt="" /></span>
+          <span><strong>Gobli</strong><small>EVIL LARRY SPAWN. POP OR IT KILLS YOU SLOWLY.</small></span>
+        </div>
+      </aside>
+
+      <section class="intro">
+        <div><h1>POP THE BUBBLES</h1></div>
+        <div class="presence-row">
+          <div class="avatars"><span class="avatar you">✦</span><span class="avatar them">✦</span></div>
+          <div><strong id="presenceTitle">OPENING THE BATTLEFIELD</strong><span id="presenceDetail">EVIL LARRY SPAWNS APPEAR</span></div>
+        </div>
+      </section>
+
+      <section id="bubbleField" class="bubble-field" aria-label="Randomly appearing bubble wrap">
+      </section>
+
+      <section id="gameOver" class="game-over" hidden aria-live="assertive">
+        <div class="game-over-card">
+          <div class="eyebrow">You clicked the same bubble as someone else!</div>
+          <h2>Game over.</h2>
+          <p>You both popped the same bubble.</p>
+          <span id="gameOverTimer">Pop Again in Five Seconds</span>
+        </div>
+      </section>
+
+      <section id="hazardGameOver" class="game-over hazard-game-over" hidden aria-live="assertive">
+        <div class="game-over-card">
+          <div class="eyebrow">EVIL MINION POPPED!</div>
+          <h2>GAME OVER.</h2>
+          <p>DON'T POP THE RED BUBBLE</p>
+          <span id="hazardGameOverTimer">Back in 5</span>
+        </div>
+      </section>
+
+      <footer><span>Each bubble lasts about three seconds.</span><span>Shared sheet <span class="footer-dot">●</span></span></footer>
+      <section id="hpGameOver" class="game-over" hidden aria-live="assertive">
+        <div class="game-over-card">
+          <div class="eyebrow">GAMEOVER!</div>
+          <h2>YOU ARE GOBLIN MEAT.</h2>
+          <p>You ran out of HP.</p>
+          <span id="hpGameOverTimer">Back in 5</span>
+        </div>
+      </section>
+      <section id="winScreen" class="game-over win-screen" hidden aria-live="assertive">
+        <div class="game-over-card win-card">
+          <div class="eyebrow">THRESHOLD ACHIEVED</div>
+          <h2>You win.</h2>
+          <p>EVIL LARRY IS SUBDUED... for now....</p>
+          <button id="goEndless" type="button">I Want To Continue Fighting Goblins</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "pop-together",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A shared WebSocket bubble wrap sheet.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
